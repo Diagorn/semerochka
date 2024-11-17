@@ -71,7 +71,14 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: row wrap;
   gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .buttons-container {
+    flex-direction: column;
+  }
 }
 
 .text-center {
