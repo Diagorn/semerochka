@@ -6,10 +6,11 @@ import AppDeck from "@/components/Deck.vue";
 import AppCard from "@/components/Card.vue";
 import {ENTER_TOAST, EXIT_TOAST, toastMap} from "@/helper/toast.helper.js";
 import AppModal from "@/components/Modal.vue";
+import AppBtn from "@/components/Button.vue";
 
 export default defineComponent({
   name: 'app-gamepage',
-  components: {AppModal, AppCard, AppDeck, AppBackArrow},
+  components: {AppBtn, AppModal, AppCard, AppDeck, AppBackArrow},
   data() {
     return {
       deck: createDeck(),
@@ -69,6 +70,16 @@ export default defineComponent({
   <app-back-arrow/>
   <div class="content">
     <div
+        class="new-game-btn"
+        v-if="!deck.hasCards()"
+    >
+      <app-btn
+          text="Новая игра"
+          @click="resetToBasics"
+      >
+      </app-btn>
+    </div>
+    <div
         class="selected-card"
         v-if="this.selectedCard"
         @click="handleSelectedCardClick"
@@ -108,7 +119,7 @@ export default defineComponent({
 
 <style scoped>
 
-.selected-card {
+.selected-card, .new-game-btn, .card-caption-container {
   display: flex;
   justify-content: center;
 }
@@ -121,11 +132,6 @@ export default defineComponent({
 .deck {
   display: inline-block;
   margin: auto;
-}
-
-.card-caption-container {
-  display: flex;
-  justify-content: center;
 }
 
 .card-caption {
@@ -148,7 +154,7 @@ export default defineComponent({
     margin: 20px auto;
   }
 
-  .card-caption-container {
+  .card-caption-container, .selected-card {
     display: none;
   }
 }

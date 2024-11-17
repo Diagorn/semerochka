@@ -28,7 +28,6 @@ export default defineComponent({
       const innerBorderWidth = parseInt(styles.getPropertyValue('--card-inner-border').slice(0, -2))
       const outerBorderWidth = parseInt(styles.getPropertyValue('--card-outer-border').slice(0, -2))
 
-      console.log(cardHeight + innerBorderWidth * 2 + outerBorderWidth * 2)
       return cardHeight + innerBorderWidth * 2 + outerBorderWidth * 2
     }
   }
