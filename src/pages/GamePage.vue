@@ -20,6 +20,10 @@ export default defineComponent({
       if (this.topCard.isFlipped()) {
         this.selectedCard = this.deck.removeTopCard()
       }
+    },
+    resetToBasics() {
+      this.deck = createDeck()
+      this.selectedCard = null
     }
   },
   computed: {
@@ -36,6 +40,7 @@ export default defineComponent({
     <div
         class="selected-card"
         v-if="this.selectedCard"
+        @click="resetToBasics"
     >
       <app-card
           :card="selectedCard"
