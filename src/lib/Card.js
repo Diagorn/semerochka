@@ -14,6 +14,10 @@ export default class Card {
      */
     _filePath;
     /**
+     * Card's caption. The meaning of this card by the rules.
+     */
+    caption;
+    /**
      * The card is flipped of not.
      * If true - the card is face-up.
      * If false - the card is face-down.
@@ -21,9 +25,10 @@ export default class Card {
      */
     _flipped;
 
-    constructor(name, filePath) {
+    constructor(name, filePath, caption) {
         this._name = name
         this._filePath = filePath
+        this._caption = caption
         this._flipped = false
     }
 
@@ -37,6 +42,10 @@ export default class Card {
 
     isFlipped() {
         return this._flipped
+    }
+
+    getCaption() {
+        return this._caption
     }
 
     /**

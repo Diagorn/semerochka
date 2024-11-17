@@ -21,6 +21,15 @@ export default defineComponent({
 
       const cards = this.deck.getCards();
       return cardWidth + innerBorderWidth * 2 + outerBorderWidth * 2 + cards.length * 1.5
+    },
+    deckHeight() {
+      const styles = window.getComputedStyle(document.documentElement)
+      const cardHeight = parseInt(styles.getPropertyValue('--card-height').slice(0, -2))
+      const innerBorderWidth = parseInt(styles.getPropertyValue('--card-inner-border').slice(0, -2))
+      const outerBorderWidth = parseInt(styles.getPropertyValue('--card-outer-border').slice(0, -2))
+
+      console.log(cardHeight + innerBorderWidth * 2 + outerBorderWidth * 2)
+      return cardHeight + innerBorderWidth * 2 + outerBorderWidth * 2
     }
   }
 })
@@ -29,7 +38,10 @@ export default defineComponent({
 <template>
   <div
       class="deck"
-      :style="{ width: deckWidth + 'px' }"
+      :style="{
+        width: deckWidth + 'px',
+        height: deckHeight + 'px'
+      }"
   >
     <div
       class="card"

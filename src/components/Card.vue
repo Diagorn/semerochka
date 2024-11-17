@@ -109,7 +109,7 @@ export default defineComponent({
 <style scoped>
 .card {
   width: var(--card-width);
-  height: var(--card-heigh);
+  height: var(--card-height);
 }
 
 .card-img {

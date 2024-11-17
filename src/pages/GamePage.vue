@@ -89,6 +89,15 @@ export default defineComponent({
     </div>
   </div>
 
+  <div class="card-caption-container">
+    <p
+        class="card-caption"
+        v-if="this.topCard && this.topCard.isFlipped()"
+    >
+      {{ this.topCard._caption }}
+    </p>
+  </div>
+
   <app-modal
       v-if="modalVisible"
       :button-text="modalButtonText"
@@ -114,6 +123,20 @@ export default defineComponent({
   margin: auto;
 }
 
+.card-caption-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-caption {
+  text-align: center;
+  margin-top: 100px;
+  width: 40vw;
+
+  color: var(--white);
+  font-size: 32px;
+}
+
 @media (max-width: 900px) {
   .content {
     flex-direction: column;
@@ -123,6 +146,10 @@ export default defineComponent({
   .deck-container {
     display: block;
     margin: 20px auto;
+  }
+
+  .card-caption-container {
+    display: none;
   }
 }
 
