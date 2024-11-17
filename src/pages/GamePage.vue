@@ -16,13 +16,9 @@ export default defineComponent({
   },
   methods: {
     handleDeckClick() {
-      if (this.deck.hasCards()) {
-        // If the top card is flipped, we let the card itself handle the click
-        if (this.topCard.isFlipped()) {
-          this.selectedCard = this.deck.removeTopCard()
-        }
-      } else {
-        alert('Выходной тост!')
+      // If the top card is flipped, we let the card itself handle the click
+      if (this.topCard.isFlipped()) {
+        this.selectedCard = this.deck.removeTopCard()
       }
     }
   },
