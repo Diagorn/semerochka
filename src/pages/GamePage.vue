@@ -109,4 +109,23 @@ export default defineComponent({
   margin: auto;
 }
 
+.selected-card {
+  margin: auto;
+}
+
+.deck-container {
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .deck-container {
+    margin-top: 20px;
+  }
+}
+
 </style>
