@@ -1,5 +1,5 @@
 <script>
-import {defineComponent, useCssVars} from 'vue'
+import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: "app-btn",

@@ -31,23 +31,43 @@ export function createDeckArrayFiles() {
     return createDeckArray().map(card => `${card}.jpg`)
 }
 
+/**
+ * Creates an array of all possible cards
+ * @return {Card[]} - array of cards
+ */
 export function createCards() {
     const deckArray = createDeckArray()
     return deckArray.map(card => new Card(card, `${card}.jpg`))
 }
 
+/**
+ * Creates a whole new Deck of cards
+ * @return {Deck}
+ */
 export function createDeck() {
     return new Deck(createCards())
 }
 
+/**
+ * Returns a relative path of the card back file
+ * @return {string}
+ */
 export function getBackFilePath() {
     return 'back.jpg'
 }
 
+/**
+ * Returns path to folder of cards
+ * @return {string}
+ */
 export function getFolderPath() {
     return '/src/assets/cards'
 }
 
+/**
+ * Returns a whole path to the card back file
+ * @return {string}
+ */
 export function getBackFile() {
     return `${getFolderPath()}/${getBackFilePath()}`
 }
