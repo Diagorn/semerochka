@@ -9,12 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "material-icons": "^1.13.12",
     "vue": "^3.5.12",
-    "vue-router": "^4.4.5",
-    "material-icons": "^1.13.12"
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "vite-plugin-static-copy": "^2.1.0"
   }
 }

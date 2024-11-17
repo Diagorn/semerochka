@@ -61,7 +61,7 @@ export function getBackFilePath() {
  * @return {string}
  */
 export function getFolderPath() {
-    return '/src/assets/cards'
+    return '/assets/cards'
 }
 
 /**
