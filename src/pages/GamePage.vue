@@ -1,15 +1,34 @@
 <script>
 import {defineComponent} from "vue";
 import {createDeck} from "@/helper/deck.helper.js";
-import AppCard from "@/components/Card.vue";
 import AppBackArrow from "@/components/BackArrow.vue";
+import AppDeck from "@/components/Deck.vue";
+import AppCard from "@/components/Card.vue";
 
 export default defineComponent({
   name: 'app-gamepage',
-  components: {AppBackArrow, AppCard},
+  components: {AppCard, AppDeck, AppBackArrow},
   data() {
     return {
-      randomCard: createDeck().shuffle().getTopCard()
+      deck: createDeck(),
+      selectedCard: null,
+    }
+  },
+  methods: {
+    handleDeckClick() {
+      if (this.deck.hasCards()) {
+        // If the top card is flipped, we let the card itself handle the click
+        if (this.topCard.isFlipped()) {
+          this.selectedCard = this.deck.removeTopCard()
+        }
+      } else {
+        alert('Выходной тост!')
+      }
+    }
+  },
+  computed: {
+    topCard() {
+      return this.deck.getTopCard()
     }
   }
 })
@@ -17,9 +36,38 @@ export default defineComponent({
 
 <template>
   <app-back-arrow/>
-  <app-card :card="randomCard"/>
+  <div class="content">
+    <div
+        class="selected-card"
+        v-if="this.selectedCard"
+    >
+      <app-card
+          :card="selectedCard"
+      />
+    </div>
+    <div
+        class="deck-container"
+        @click="handleDeckClick"
+        v-if="deck.hasCards()"
+    >
+      <app-deck
+          :deck="deck"
+          class="deck"
+      />
+    </div>
+  </div>
 </template>
 
 <style scoped>
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.deck {
+  display: inline-block;
+  margin: auto;
+}
 
 </style>

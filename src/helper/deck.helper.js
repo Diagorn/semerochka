@@ -45,7 +45,7 @@ export function createCards() {
  * @return {Deck}
  */
 export function createDeck() {
-    return new Deck(createCards())
+    return new Deck(createCards()).shuffle()
 }
 
 /**

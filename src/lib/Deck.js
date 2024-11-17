@@ -14,6 +14,14 @@ export default class Deck {
     }
 
     /**
+     * get this deck's content
+     * @return {Card[]}
+     */
+    getCards() {
+        return this._cards
+    }
+
+    /**
      * Shuffles the remaining cards in the deck in random order.
      * Returns self.
      * @return {Deck}
@@ -27,11 +35,19 @@ export default class Deck {
     }
 
     /**
-     * Returns top card from the deck and deletes it.
+     * Returns top card from the deck
      * @return {Card}
      */
     getTopCard() {
-        return this._cards.shift()
+        return this._cards[this._cards.length - 1]
+    }
+
+    /**
+     * Returns top card from the deck and deletes it.
+     * @return {Card}
+     */
+    removeTopCard() {
+        return this._cards.pop()
     }
 
     /**

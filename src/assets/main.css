@@ -6,6 +6,11 @@
     --light-blue: #5C9BC8;
     --brown: #491d1E;
     --white: #FFFFFF;
+
+    --card-width: 270px;
+    --card-heigh: 420px;
+    --card-inner-border: 10px;
+    --card-outer-border: 1px;
 }
 
 body, html {

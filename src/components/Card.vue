@@ -22,10 +22,17 @@ export default defineComponent({
   },
   methods: {
     getBackFile,
-    flipCard() {
+    flipCard(e) {
       if (this.isFlipping) {
         return
       }
+
+      // If the card is face-down, we flip it
+      // Otherwise, let the parent handle the click event
+      if (this.card.isFlipped()) {
+        return;
+      }
+
       this.isFlipping = true
       const initialPosition = this.card.isFlipped()
       const duration = 500
@@ -74,38 +81,49 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="card" @click="flipCard" :style="cardStyle">
+  <div
+      class="card no-select"
+      @click="flipCard"
+      :style="cardStyle"
+      v-if="this.card"
+  >
     <img
         id="front"
-        v-if="this.card.isFlipped()"
+        v-if="this.card && this.card.isFlipped()"
         :src="getCardSrc()"
         alt=""
         class="card-img"
+        draggable="false"
     />
     <img
         id="back"
-        v-if="!this.card.isFlipped()"
+        v-if="this.card && !this.card.isFlipped()"
         :src="getBackFile()"
         alt=""
         class="card-img"
+        draggable="false"
     />
   </div>
 </template>
 
 <style scoped>
 .card {
-  min-width: 68px;
-  min-height: 105px;
-
-  max-width: 270px;
-  max-height: 420px;
-
-  border-radius: 10px;
-  border: 10px solid var(--white);
+  width: var(--card-width);
+  height: var(--card-heigh);
 }
 
 .card-img {
   width: 100%;
   height: 100%;
+
+  border-radius: 10px;
+  border: var(--card-inner-border) solid var(--white);
+  box-shadow: 0 0 0 var(--card-outer-border) var(--black);
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard syntax */
 }
 </style>
