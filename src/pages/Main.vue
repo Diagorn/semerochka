@@ -75,7 +75,7 @@ export default defineComponent({
   gap: 24px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .buttons-container {
     flex-direction: column;
   }

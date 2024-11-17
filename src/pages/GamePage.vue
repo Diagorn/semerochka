@@ -99,6 +99,11 @@ export default defineComponent({
 
 <style scoped>
 
+.selected-card {
+  display: flex;
+  justify-content: center;
+}
+
 .content {
   display: flex;
   justify-content: space-around;
@@ -109,22 +114,15 @@ export default defineComponent({
   margin: auto;
 }
 
-.selected-card {
-  margin: auto;
-}
-
-.deck-container {
-  margin: auto;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .content {
     flex-direction: column;
     justify-content: center;
   }
 
   .deck-container {
-    margin-top: 20px;
+    display: block;
+    margin: 20px auto;
   }
 }
 
