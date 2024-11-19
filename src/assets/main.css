@@ -18,12 +18,23 @@ body, html {
     background: var(--black);
 }
 
+body {
+    background-image: url("@/assets/screens/background.jpg") !important;
+    background-size: cover;
+}
+
 * {
     font-family: "Montserrat", serif !important;
     padding: 0;
-    background: var(--black);
+    background: transparent;
 }
 
 .material-icons {
     font-family: "Material Icons", serif !important;
+}
+
+@media (max-width: 900px) {
+    body {
+        background-image: url("@/assets/screens/background-vertical.jpg") !important;
+    }
 }
