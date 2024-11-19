@@ -159,4 +159,10 @@ export default defineComponent({
   }
 }
 
+@media (min-width: 901px) {
+  .new-game-btn {
+    display: none;
+  }
+}
+
 </style>
