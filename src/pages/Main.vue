@@ -7,9 +7,9 @@ export default defineComponent({
   data() {
     return {
       navigation: [
-        {text: 'Играть', path: '/game'},
-        {text: 'Правила', path: '/rules'},
-        {text: 'Про игру', path: '/about'}
+        {text: 'Играть', path: '/game', id: 'game'},
+        {text: 'Правила', path: '/rules', id: 'rules'},
+        {text: 'Про игру', path: '/about', id: 'about'}
       ],
       bannerVisible: false,
       buttonsVisible: false,
@@ -40,6 +40,7 @@ export default defineComponent({
           v-for="(item, index) in navigation"
           :key="index"
           :text="item.text"
+          :class="item.id === 'game' ? 'play-btn' : ''"
           @click="redirect(item.path)"
       >
       </app-btn>
@@ -64,13 +65,13 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
+  flex-direction: column;
   gap: 24px;
 }
 
-@media (max-width: 900px) {
-  .buttons-container {
-    flex-direction: column;
-  }
+.play-btn {
+  width: 240px;
+  height: 70px;
 }
 
 .text-center {
