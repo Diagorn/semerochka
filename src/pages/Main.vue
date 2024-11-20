@@ -12,7 +12,6 @@ export default defineComponent({
         {text: 'Про игру', path: '/about'}
       ],
       bannerVisible: false,
-      headerVisible: false,
       buttonsVisible: false,
     }
   },
@@ -23,8 +22,7 @@ export default defineComponent({
   },
   mounted() {
     setTimeout(() => this.bannerVisible = true, 200)
-    setTimeout(() => this.headerVisible = true, 600)
-    setTimeout(() => this.buttonsVisible = true, 1000)
+    setTimeout(() => this.buttonsVisible = true, 600)
   }
 })
 </script>
@@ -35,12 +33,6 @@ export default defineComponent({
       <img class="banner" src="../assets/screens/semerochka_banner.png" alt="" v-if="bannerVisible">
     </Transition>
   </div>
-
-  <Transition :duration="1000" name="slide">
-    <p class="text-center text-white mt-7 header" v-if="headerVisible">
-      Сможешь ли ты выстоять?
-    </p>
-  </Transition>
 
   <Transition :duration="1000" name="slide">
     <div class="buttons-container mt-5" v-if="buttonsVisible">
