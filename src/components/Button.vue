@@ -5,7 +5,7 @@ export default defineComponent({
   name: "app-btn",
   data() {
     return {
-      defaultBackground: 'var(--purple)',
+      defaultBackground: 'var(--deep-blue)',
       defaultTextColor: 'var(--white)'
     }
   },
