@@ -3,24 +3,26 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: "app-btn",
-  data() {
-    return {
-      defaultBackground: 'var(--deep-blue)',
-      defaultTextColor: 'var(--white)'
-    }
-  },
   props: {
     backgroundColor: {
       type: String,
-      required: false
+      default: 'var(--deep-blue)'
     },
     textColor: {
       type: String,
-      required: false
+      default: 'var(--white)'
     },
     text: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    buttonStyles() {
+      return {
+        background: this.backgroundColor,
+        color: this.textColor,
+      }
     }
   }
 })
@@ -29,10 +31,7 @@ export default defineComponent({
 <template>
   <button
       class="app-btn"
-      :style="{
-        background: backgroundColor ? backgroundColor : defaultBackground,
-        color: textColor ? textColor : defaultTextColor
-      }"
+      :style="buttonStyles"
   >
     {{ text }}
   </button>
