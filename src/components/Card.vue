@@ -2,6 +2,7 @@
 import {defineComponent} from 'vue'
 import Card from "@/lib/Card.js";
 import {getBackFile, getFolderPath} from "@/helper/deck.helper.js";
+import {MOBILE_MAX_WIDTH} from "@/helper/constants.js";
 
 export default defineComponent({
   name: "app-card",
@@ -78,13 +79,22 @@ export default defineComponent({
       return `${this.folderPath}/${this.card.getFilePath()}`
     },
     showHint() {
-      this.hintTextVisible = true
+      if (!this.isMobile) {
+        this.hintTextVisible = true
+      }
     },
     hideHint() {
-      this.hintTextVisible = false
+      if (!this.isMobile) {
+        this.hintTextVisible = false
+      }
     },
     toggleHintVisibility() {
       this.hintTextVisible = !this.hintTextVisible
+    }
+  },
+  computed: {
+    isMobile() {
+      return window.innerWidth < MOBILE_MAX_WIDTH
     }
   }
 })
