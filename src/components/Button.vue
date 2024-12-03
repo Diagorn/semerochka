@@ -40,7 +40,7 @@ export default defineComponent({
 <style scoped>
 
 .app-btn {
-  min-width: 140px;
+  min-width: 184px;
   font-size: 24px;
   padding: 14px;
   border-radius: 10px;

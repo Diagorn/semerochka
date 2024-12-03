@@ -9,7 +9,8 @@ export default defineComponent({
       navigation: [
         {text: 'Играть', path: '/game', id: 'game'},
         {text: 'Правила', path: '/rules', id: 'rules'},
-        {text: 'Про игру', path: '/about', id: 'about'}
+        {text: 'Про игру', path: '/about', id: 'about'},
+        {text: 'Поддержать', path: '/support', id: 'support'}
       ],
       bannerVisible: false,
       buttonsVisible: false,

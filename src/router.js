@@ -3,6 +3,7 @@ import Main from "@/pages/Main.vue";
 import Rules from "@/pages/Rules.vue";
 import About from "@/pages/About.vue";
 import GamePage from "@/pages/GamePage.vue"
+import Support from "@/pages/Support.vue";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
     {
         path: '/game',
         component: GamePage
+    },
+    {
+        path: '/support',
+        component: Support
     }
 ]
 
