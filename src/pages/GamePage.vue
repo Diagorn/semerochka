@@ -14,16 +14,14 @@ export default defineComponent({
   data() {
     return {
       deck: createDeck(),
-      selectedCard: null,
       modalVisible: false,
       toastType: ENTER_TOAST,
     }
   },
   methods: {
     handleDeckClick() {
-      // If the top card is flipped, we let the card itself handle the click
-      if (this.topCard.isFlipped()) {
-        this.selectedCard = this.deck.removeTopCard()
+      if (this.deck.getTopCard().isFlipped()) {
+        this.deck.removeTopCard()
       }
 
       if (!this.deck.hasCards()) {
@@ -31,14 +29,8 @@ export default defineComponent({
         this.openModal()
       }
     },
-    handleSelectedCardClick() {
-      if (!this.deck.hasCards()) {
-        this.resetToBasics()
-      }
-    },
     resetToBasics() {
       this.deck = createDeck()
-      this.selectedCard = null
       this.toastType = ENTER_TOAST
       this.openModal()
     },
@@ -76,16 +68,6 @@ export default defineComponent({
       <app-btn
           text="Новая игра"
           @click="resetToBasics"
-      >
-      </app-btn>
-    </div>
-    <div
-        class="selected-card"
-        v-if="this.selectedCard"
-        @click="handleSelectedCardClick"
-    >
-      <app-card
-          :card="selectedCard"
       />
     </div>
     <div
@@ -100,15 +82,6 @@ export default defineComponent({
     </div>
   </div>
 
-  <div class="card-caption-container">
-    <p
-        class="card-caption"
-        v-if="this.topCard && this.topCard.isFlipped()"
-    >
-      {{ this.topCard._caption }}
-    </p>
-  </div>
-
   <app-modal
       v-if="modalVisible"
       :button-text="modalButtonText"
@@ -119,12 +92,14 @@ export default defineComponent({
 
 <style scoped>
 
-.selected-card, .new-game-btn, .card-caption-container {
+.new-game-btn{
   display: flex;
   justify-content: center;
+  margin-top: 40vh;
 }
 
 .content {
+  min-height: inherit;
   display: flex;
   justify-content: space-around;
 }
@@ -132,15 +107,6 @@ export default defineComponent({
 .deck {
   display: inline-block;
   margin: auto;
-}
-
-.card-caption {
-  text-align: center;
-  margin-top: 100px;
-  width: 40vw;
-
-  color: var(--white);
-  font-size: 32px;
 }
 
 @media (max-width: 900px) {
@@ -152,16 +118,6 @@ export default defineComponent({
   .deck-container {
     display: block;
     margin: 20px auto;
-  }
-
-  .card-caption-container, .selected-card {
-    display: none;
-  }
-}
-
-@media (min-width: 901px) {
-  .new-game-btn {
-    display: none;
   }
 }
 
