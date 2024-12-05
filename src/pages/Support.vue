@@ -49,7 +49,6 @@ export default defineComponent({
   max-height: 85vh;
   margin: 0 auto;
   color: var(--white);
-  overflow-y: scroll;
 }
 
 #header-text {
