@@ -11,7 +11,7 @@ export default defineComponent({
   <app-back-arrow/>
   <div class="content">
     <div class="text-block">
-      <h1 id="header-text">Правила семерочки</h1>
+      <h1 class="header-text">Правила семерочки</h1>
     </div>
     <p class="text-block">
       Семерочка - спортивно-оздоровительная интеллектуальная игра, направленная на сплочение команды и развития себя
@@ -207,16 +207,6 @@ export default defineComponent({
   overflow-y: scroll;
 }
 
-.text-block {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-#header-text {
-  font-size: 48px;
-  text-align: center;
-}
-
 .subheader-text {
   font-size: 32px;
   text-align: center;
@@ -226,10 +216,6 @@ export default defineComponent({
 .local-heading {
   display: block;
   margin-bottom: 10px;
-  font-style: italic;
-}
-
-.italic {
   font-style: italic;
 }
 

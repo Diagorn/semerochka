@@ -1,1 +1,2 @@
 export const MOBILE_MAX_WIDTH = 900
+export const CARD_NUMBER = '2200 7001 4237 6697'

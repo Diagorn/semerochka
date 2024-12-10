@@ -4,14 +4,19 @@ import AppBtn from "@/components/Button.vue";
 
 export default defineComponent({
   components: {AppBtn},
-  data() {
-    return {
-      navigation: [
+  props: {
+    navigation: {
+      type: Array,
+      default: [
         {text: 'Играть', path: '/game', id: 'game'},
         {text: 'Правила', path: '/rules', id: 'rules'},
         {text: 'Про игру', path: '/about', id: 'about'},
         {text: 'Поддержать', path: '/support', id: 'support'}
-      ],
+      ]
+    }
+  },
+  data() {
+    return {
       bannerVisible: false,
       buttonsVisible: false,
     }

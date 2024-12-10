@@ -29,7 +29,7 @@ export default defineComponent({
         this.openModal()
       }
     },
-    resetToBasics() {
+    reset() {
       this.deck = createDeck()
       this.toastType = ENTER_TOAST
       this.openModal()
@@ -67,7 +67,7 @@ export default defineComponent({
     >
       <app-btn
           text="Новая игра"
-          @click="resetToBasics"
+          @click="reset"
       />
     </div>
     <div
