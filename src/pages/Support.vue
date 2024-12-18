@@ -85,6 +85,7 @@ export default defineComponent({
   justify-content: space-around;
   width: 15%;
   height: 15%;
+  min-width: 120px;
 }
 
 #message {
