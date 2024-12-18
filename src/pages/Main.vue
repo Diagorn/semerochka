@@ -41,7 +41,7 @@ export default defineComponent({
   </div>
 
   <Transition :duration="1000" name="slide">
-    <div class="buttons-container mt-5" v-if="buttonsVisible">
+    <div class="buttons-container" v-if="buttonsVisible">
       <app-btn
           v-for="(item, index) in navigation"
           :key="index"
@@ -74,6 +74,7 @@ export default defineComponent({
   flex-flow: row wrap;
   flex-direction: column;
   gap: 24px;
+  margin-top: 20px;
 }
 
 .play-btn {
