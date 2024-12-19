@@ -92,4 +92,10 @@ export default defineComponent({
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .content {
+    overflow-y: scroll;
+  }
+}
+
 </style>
