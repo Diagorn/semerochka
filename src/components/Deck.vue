@@ -30,6 +30,14 @@ export default defineComponent({
 
       return cardHeight + innerBorderWidth * 2 + outerBorderWidth * 2
     }
+  },
+  methods: {
+    flipTopCard() {
+      const lastCardInDeck = this.$refs.cards.find(card => card.lastInDeck);
+      if (lastCardInDeck) {
+        lastCardInDeck.flipCard()
+      }
+    }
   }
 })
 </script>
@@ -53,6 +61,8 @@ export default defineComponent({
           :style="{
             left: `${index * 1.5}px`
           }"
+          :last-in-deck="index === deck.getCards().length - 1"
+          ref="cards"
       />
     </div>
   </div>

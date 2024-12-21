@@ -28,6 +28,10 @@ export default defineComponent({
         this.toastType = EXIT_TOAST
         this.openModal()
       }
+
+      if (this.deck.hasCards()) {
+        setTimeout(() => this.$refs.deckElement.flipTopCard(), 300)
+      }
     },
     reset() {
       this.deck = createDeck()
@@ -78,6 +82,7 @@ export default defineComponent({
       <app-deck
           :deck="deck"
           class="deck"
+          ref="deckElement"
       />
     </div>
   </div>

@@ -20,10 +20,23 @@ export default defineComponent({
     card: {
       type: Card,
       required: true
+    },
+    lastInDeck: {
+      type: Boolean,
+      default: false
+    },
+    clickable: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     getBackFile,
+    handleCardFlip() {
+      if (this.clickable) {
+        this.flipCard()
+      }
+    },
     flipCard() {
       if (this.isFlipping) {
         return
@@ -103,7 +116,7 @@ export default defineComponent({
 <template>
   <div
       class="card no-select"
-      @click="flipCard"
+      @click="handleCardFlip"
       :style="cardStyle"
       v-if="this.card"
   >
