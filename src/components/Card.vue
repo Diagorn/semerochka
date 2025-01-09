@@ -1,7 +1,7 @@
 <script>
 import {defineComponent} from 'vue'
 import Card from "@/lib/Card.js";
-import {getBackFile, getFolderPath} from "@/helper/deck.helper.js";
+import {backImage, getFolderPath} from "@/helper/deck.helper.js";
 import {MOBILE_MAX_WIDTH} from "@/helper/constants.js";
 
 export default defineComponent({
@@ -31,7 +31,9 @@ export default defineComponent({
     }
   },
   methods: {
-    getBackFile,
+    backImage() {
+      return backImage
+    },
     handleCardFlip() {
       if (this.clickable) {
         this.flipCard()
@@ -88,9 +90,6 @@ export default defineComponent({
 
       requestAnimationFrame(step)
     },
-    getCardSrc() {
-      return `${this.folderPath}/${this.card.getFilePath()}`
-    },
     showHint() {
       if (!this.isMobile) {
         this.hintTextVisible = true
@@ -133,7 +132,7 @@ export default defineComponent({
     <img
         id="front"
         v-if="this.card && this.card.isFlipped()"
-        :src="getCardSrc()"
+        :src="this.card.getFilePath()"
         alt=""
         class="card-img"
         draggable="false"
@@ -141,7 +140,7 @@ export default defineComponent({
     <img
         id="back"
         v-if="this.card && !this.card.isFlipped()"
-        :src="getBackFile()"
+        :src="backImage().src"
         alt=""
         class="card-img"
         draggable="false"

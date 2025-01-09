@@ -9,10 +9,10 @@ export default class Card {
      */
     _name;
     /**
-     * Path to the card's file
+     * Card's image
      * @private
      */
-    _filePath;
+    _image;
     /**
      * Card's caption. The meaning of this card by the rules.
      */
@@ -25,9 +25,9 @@ export default class Card {
      */
     _flipped;
 
-    constructor(name, filePath, caption) {
+    constructor(name, image, caption) {
         this._name = name
-        this._filePath = filePath
+        this._image = image
         this._caption = caption
         this._flipped = false
     }
@@ -37,7 +37,7 @@ export default class Card {
     }
 
     getFilePath() {
-        return this._filePath
+        return this._image.src
     }
 
     isFlipped() {

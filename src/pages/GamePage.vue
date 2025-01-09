@@ -13,7 +13,7 @@ export default defineComponent({
   components: {AppBtn, AppModal, AppCard, AppDeck, AppBackArrow},
   data() {
     return {
-      deck: createDeck(),
+      deck: null,
       modalVisible: false,
       toastType: ENTER_TOAST,
     }
@@ -58,6 +58,9 @@ export default defineComponent({
   },
   mounted() {
     setTimeout(() => this.modalVisible = true, 200)
+  },
+  created() {
+    this.deck = createDeck()
   }
 })
 </script>

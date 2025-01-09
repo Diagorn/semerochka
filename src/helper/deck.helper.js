@@ -1,6 +1,13 @@
 import Card from "@/lib/Card.js";
 import Deck from "@/lib/Deck.js";
+import {CARD_IMG_HEIGHT, CARD_IMG_WIDTH} from "@/helper/constants.js";
 
+/**
+ * Back file image
+ * @type {HTMLImageElement}
+ */
+export const backImage = new Image(CARD_IMG_WIDTH, CARD_IMG_HEIGHT)
+backImage.src = `${getFolderPath()}/${getBackFilePath()}`
 /**
  * all possible suits of the cards
  */
@@ -45,23 +52,20 @@ export function createDeckArray() {
 }
 
 /**
- * Creates an array of all possible card files.
- */
-export function createDeckArrayFiles() {
-    return createDeckArray().map(card => card.fileTemplate = `${card.fileTemplate}.jpg`)
-}
-
-/**
  * Creates an array of all possible cards
  * @return {Card[]} - array of cards
  */
 export function createCards() {
     const deckArray = createDeckArray()
-    return deckArray.map(card => new Card(
-        card.name,
-        `${card.fileTemplate}.jpg`,
-        rankCaptions.get(card.fileTemplate.substring(0, card.fileTemplate.length - 1))
-    ))
+    return deckArray.map(card => {
+        const image = new Image(CARD_IMG_WIDTH, CARD_IMG_HEIGHT)
+        image.src = `/assets/cards/${card.fileTemplate}.jpg`
+        return new Card(
+            card.name,
+            image,
+            rankCaptions.get(card.fileTemplate.substring(0, card.fileTemplate.length - 1))
+        )
+    })
 }
 
 /**
@@ -86,12 +90,4 @@ export function getBackFilePath() {
  */
 export function getFolderPath() {
     return '/assets/cards'
-}
-
-/**
- * Returns a whole path to the card back file
- * @return {string}
- */
-export function getBackFile() {
-    return `${getFolderPath()}/${getBackFilePath()}`
 }
